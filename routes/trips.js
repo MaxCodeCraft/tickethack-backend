@@ -16,7 +16,7 @@ router.post("/find", (req, res) => {
         results.push(tripData[i]);
       }
     }
-    res.json({ results: results });
+    res.json({ results });
   });
 });
 
