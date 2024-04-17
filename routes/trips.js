@@ -5,8 +5,8 @@ const Trip = require("../models/trips");
 
 router.post("/find", (req, res) => {
   Trip.find({
-    departure: req.body.departure,
-    arrival: req.body.arrival,
+    departure: { $regex: req.body.departure, $options: "i" },
+    arrival: { $regex: req.body.arrival, $options: "i" },
   }).then((tripData) => {
     const results = [];
     for (let i = 0; i < tripData.length; i++) {
