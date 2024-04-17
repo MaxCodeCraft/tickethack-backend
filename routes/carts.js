@@ -20,4 +20,18 @@ router.post("/add", (req, res) => {
   });
 });
 
+router.delete("/delete", (req, res) => {
+  Cart.deleteOne({ _id: req.body.id }).then((data) => {
+    console.log(data);
+    res.json({ result: true });
+  });
+});
+
+router.delete("/deleteall", (req, res) => {
+  Cart.deleteMany().then((data) => {
+    console.log(data);
+    res.json({ result: true });
+  });
+});
+
 module.exports = router;
